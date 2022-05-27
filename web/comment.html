@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Guipink Education</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="static/css/css2.css" rel="stylesheet">
+
+    <link href="static/css/all.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="static/css/animate.min.css" rel="stylesheet">
+    <link href="static/css/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="static/css/style.css" rel="stylesheet">
+    <link href="static/css/comment.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="spinner"
+     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Guipink Education</h2>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="index.html" class="nav-item nav-link">Home</a>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Courses</a>
+                <div class="dropdown-menu fade-down m-0">
+                    <a href="courses.html" class="dropdown-item">Course</a>
+                    <a href="create_course.html" class="dropdown-item">Create Course</a>
+                </div>
+            </div>
+            <a href="" class="nav-item nav-link active">Comment</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu fade-down m-0">
+                    <a href="mine.html" class="dropdown-item">Mine</a>
+                    <a href="shop.html" class="dropdown-item">Shop</a>
+                </div>
+            </div>
+            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a href="javascript:quit();" class="nav-item nav-link">Quit</a>
+        </div>
+        <a id="logina" href="login.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login<i class="fa fa-arrow-right ms-3"></i></a>
+    </div>
+</nav>
+
+
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Comment</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="qq">
+    <!-- <p>有什么新鲜事想告诉大家?</p> -->
+    <!-- <input id="inputId" type="text" oninput="inputFunc()" onkeyup="keyupFunc()"/> -->
+    <!-- <textarea id="textareaId" oninput="textareaFunc()"></textarea> -->
+    <div class="message" contentEditable='true' id="inputId" type="text" value="说点什么吧！"> </div>
+<!--    <input type="text" class="form-control border-light" style="padding: 30px 25px;" placeholder="Keyword">-->
+<!--<div class="input-group-append">-->
+
+<!--    </input>-->
+    <div class="But">
+        <img src="./static/image/bba_thumb.gif" class='bq' />
+        <span class='submit'>发表</span>
+        <!--face begin-->
+        <div class="face">
+            <ul>
+                <li><img src="./static/image/smilea_thumb.gif" title="[呵呵]"></li>
+                <li><img src="./static/image/tootha_thumb.gif" title="[嘻嘻]"></li>
+                <li><img src="./static/image/laugh.gif" title="[哈哈]"></li>
+                <li><img src="./static/image/tza_thumb.gif" title="[可爱]"></li>
+                <li><img src="./static/image/kl_thumb.gif" title="[可怜]"></li>
+                <li><img src="./static/image/kbsa_thumb.gif" title="[挖鼻屎]"></li>
+                <li><img src="./static/image/cj_thumb.gif" title="[吃惊]"></li>
+                <li><img src="./static/image/shamea_thumb.gif" title="[害羞]"></li>
+                <li><img src="./static/image/zy_thumb.gif" title="[挤眼]"></li>
+                <li><img src="./static/image/bz_thumb.gif" title="[闭嘴]"></li>
+                <li><img src="./static/image/bs2_thumb.gif" title="[鄙视]"></li>
+                <li><img src="./static/image/lovea_thumb.gif" title="[爱你]"></li>
+                <li><img src="./static/image/lazu_thumb.gif" title="[蜡烛]"></li>
+                <li><img src="./static/image/clock_thumb.gif" title="[钟]"></li>
+                <li><img src="./static/image/cake.gif" title="[蛋糕]"></li>
+                <li><img src="./static/image/m_thumb.gif" title="[话筒]"></li>
+                <li><img src="./static/image/weijin_thumb.gif" title="[围脖]"></li>
+                <li><img src="./static/image/lxhzhuanfa_thumb.gif" title="[转发]"></li>
+                <li><img src="./static/image/lxhluguo_thumb.gif" title="[路过这儿]"></li>
+                <li><img src="./static/image/bofubianlian_thumb.gif" title="[bofu变脸]"></li>
+                <li><img src="./static/image/gbzkun_thumb.gif" title="[gbz困]"></li>
+                <li><img src="./static/image/boboshengmenqi_thumb.gif" title="[生闷气]"></li>
+                <li><img src="./static/image/chn_buyaoya_thumb.gif" title="[不要啊]"></li>
+                <li><img src="./static/image/daxiongleibenxiong_thumb.gif" title="[dx泪奔]"></li>
+                <li><img src="./static/image/cat_yunqizhong_thumb.gif" title="[运气中]"></li>
+                <li><img src="./static/image/youqian_thumb.gif" title="[有钱]"></li>
+            </ul>
+        </div>
+        <!--face end-->
+    </div>
+</div>
+<!--qq end-->
+<!--msgCon begin-->
+<div class="msgCon"></div>
+
+<!-- 这是输入框 -->
+<script>
+    var inputId = document.getElementById('inputId');
+    inputId.addEventListener('focus', function() {
+      if(inputId.setSelectionRange) {
+        inputId.setSelectionRange(0, inputId.value.length);
+      }
+    });
+</script>
+<script src="./static/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+    let uid;
+    let msgBoxList = [];
+
+    window.onload=function() {
+        uid = sessionStorage.getItem("uid");
+        if(uid==null){
+            alert("请先登录");
+            location.href="login.html";
+            return;
+        }else{
+            document.getElementById("logina").innerHTML = uid+", 欢迎您！";
+            document.getElementById("logina").href="#";
+        }
+        $.ajax({
+            type:'get',
+            url:'http://'+location.host+'/projectv2_war_exploded/CommentServlet?type=get',
+            dataType:'json',
+            success:function (data) {
+                console.log(data);
+                for(var i=0; i<data.comments.length; i++){
+                    msgBoxList.unshift(data.comments[i]);
+                }
+                innerHTMl(msgBoxList);
+            }
+        })
+    }
+
+    //从缓存中获取数据并渲染
+    // msgBoxList = JSON.parse(window.localStorage.getItem('msgBoxList')) || [];
+    // innerHTMl(msgBoxList)
+
+    //点击小图片，显示表情
+    $(".bq").click(function (e) {
+        $(".face").slideDown(); //慢慢向下展开
+        e.stopPropagation(); //阻止冒泡事件
+    });
+
+    //在桌面任意地方点击，关闭表情框
+    $(document).click(function () {
+        $(".face").slideUp(); //慢慢向上收
+    });
+
+    //点击小图标时，添加功能
+    $(".face ul li").click(function () {
+        let simg = $(this).find("img").clone();
+        $(".message").append(simg); //将表情添加到输入框
+    });
+
+    //点击发表按扭，发表内容
+    $("span.submit").click(function () {
+        let date = new Date();
+        let time = dateFormat("mm-dd HH:MM:SS", date)
+        let txt = $(".message").html(); //获取输入框内容
+        if (!txt) {
+            $('.message').focus(); //自动获取焦点
+            return;
+        }
+        let obj = {
+            uid: uid,
+            commentContent: txt,
+            commentTime: time
+        }
+        msgBoxList.unshift(obj) //添加到数组里
+        window.localStorage.setItem('msgBoxList', JSON.stringify(msgBoxList)) //将数据保存到缓存
+        innerHTMl([obj]) //渲染当前输入框内容
+
+        $.ajax({
+            type:'post',
+            url:'http://'+location.host+'/projectv2_war_exploded/CommentServlet?type=insert&uid='+uid+'&commentContent='+txt+'&commentTime='+time,
+            success:function (data) {
+                console.log("已经插入数据库。");
+            }
+        })
+
+        $('.message').html('') // 清空输入框
+
+    });
+
+    //删除当前数据
+    $("body").on('click', '.del', function () {
+        let index = $(this).parent().parent().index();
+        msgBoxList.splice(index, 1)
+        window.localStorage.setItem('msgBoxList', JSON.stringify(msgBoxList)) //将数据保存到缓存
+        $(this).parent().parent().remove()
+    })
+
+    //渲染html
+    function innerHTMl(List) {
+        List = List || []
+        List.forEach(item => {
+            let str =
+                `<div class='msgBox'>
+					<div class="headUrl">
+						<img src='./static/image/tx.jpg' width='50' height='50'>
+						<div>
+							<span class="title">${item.uid}</span>
+							<span class="time">${item.commentTime}</span>
+						</div>
+						<a class="del">删除</a>
+					</div>
+					<div class='msgTxt'>
+						${item.commentContent}
+					</div>
+				</div>`
+            $(".msgCon").prepend(str);
+        })
+    }
+    function dateFormat(fmt, date) {
+        let ret;
+        const opt = {
+            "Y+": date.getFullYear().toString(),        // 年
+            "m+": (date.getMonth() + 1).toString(),     // 月
+            "d+": date.getDate().toString(),            // 日
+            "H+": date.getHours().toString(),           // 时
+            "M+": date.getMinutes().toString(),         // 分
+            "S+": date.getSeconds().toString()          // 秒
+            // 有其他格式化字符需求可以继续添加，必须转化成字符串
+        };
+        for (let k in opt) {
+            ret = new RegExp("(" + k + ")").exec(fmt);
+            if (ret) {
+                fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+            };
+        };
+        return fmt;
+    }
+</script>
+
+
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+<script data-cfasync="false" src="static/js/email-decode.min.js"></script>
+<script src="static/js/jquery-3.4.1.min.js" type="eb301e28b50468f7b49c421c-text/javascript"></script>
+<script src="static/js/bootstrap.bundle.min.js" type="eb301e28b50468f7b49c421c-text/javascript"></script>
+<script src="static/js/wow.min.js" type="eb301e28b50468f7b49c421c-text/javascript"></script>
+<script src="static/js/easing.min.js" type="eb301e28b50468f7b49c421c-text/javascript"></script>
+<script src="static/js/waypoints.min.js" type="eb301e28b50468f7b49c421c-text/javascript"></script>
+<script src="static/js/owl.carousel.min.js" type="eb301e28b50468f7b49c421c-text/javascript"></script>
+
+<script src="static/js/main.js" type="eb301e28b50468f7b49c421c-text/javascript"></script>
+<script src="static/js/rocket-loader.min.js" data-cf-settings="eb301e28b50468f7b49c421c-|49" defer=""></script>
+<script>
+    function quit() {
+        sessionStorage.removeItem("uid");
+        sessionStorage.removeItem("userType");
+        location.href="index.html";
+    }
+</script>
+</body>
+</html>

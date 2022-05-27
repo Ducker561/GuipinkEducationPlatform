@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>后台管理平台</title>
+
+    <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+    <script src="../js/jquery-3.3.1.min.js" ></script>
+    <script src="../layui/layui.js" charset="utf-8"></script>
+    <style>
+        .layui-form-label {
+            width: 120px;
+            text-align: center;
+        }
+        .layui-input-block {
+            margin-left: 150px;
+        }
+    </style>
+</head>
+<div>
+<blockquote class="layui-elem-quote">人员管理>>所有用户信息</blockquote>
+<br>
+<div class="layui-container">
+    <div class="layui-col-md12">
+<h1 align="center">所有用户列表</h1>
+</br>
+    <form class="layui-form" action="">
+        <div class="layui-col-md4">
+        <div class="layui-inline">
+            <label class="layui-form-label">用户名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="title" placeholder="请输入用户姓名" required lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        </div>
+        <div class="layui-col-md4">
+        <div class="layui-inline">
+            <a class="layui-input-inline">
+                <button type="button" class="layui-btn"  id="findByuName">查找用户</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+<!--                <a href="SP_detail.html">-->
+<!--                    <button type="button" class="layui-btn" id="null1">查询用户项目信息</button>-->
+                </a>
+            </a>
+        </div>
+        </div>
+        <div class="layui-col-md4">&nbsp;</div>
+    </form>
+    </div>
+</br>
+    <div class="layui-col-md12">
+        <table class="layui-hide" id="test" lay-filter="test"></table>
+    </div>
+
+</div>
+
+<script>
+
+    let uid=sessionStorage.getItem("uid");
+    if(sessionStorage.getItem("userType")!="admin"){
+        alert("没有权限进行此操作。");
+        location.href="index.html";
+    }
+
+    //封装了tableInit的对象/函数，根据不同的url来实现表格的渲染
+    var tableInit = function(url) {//url代表的是渲染表格的请求路径
+        layui.use('table', function () {
+            var $ = layui.$;
+
+            var table = layui.table;
+
+            table.render({
+                elem: '#test'
+                , url: url
+                , page: true //开启分页
+                ,toolbar:true
+                , height:530
+                , parseData: function (res) { //res 即为原始返回的数据
+                    return {
+                        "code": 0, //解析接口状态
+                        "msg": "OK", //解析提示文本
+                        "count": 100, //解析数据长度
+                        "data": res //解析数据列表
+                    };
+                }
+                , cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                , cols: [[
+                    {field: 'uid', width:'21%', title: '用户名',align:'center',  sort: true,edit:'text'}
+                    , {field: 'uName', width: '12%', title: '用户姓名',align:'center', edit:'text'}
+                    , {field: 'uSex', width: '12%', title: '用户性别',align:'center', edit:'text'}
+                    , {field: 'uAge', width: '14%', title: '用户年龄',align:'center', edit:'text'}
+                    , {field: 'uTel', width: '20%', title: '用户电话',align:'center', edit:'text'}
+                    , {field: 'uType', width: '11%',align:'center', title: '用户类型',edit:'text'}
+                    , {field: 'right', width: '10%',title: '删除用户',align:'center', toolbar: '#barDemo',edit:'text'} //这里的toolbar值是模板元素的选择器
+                ]]
+            });
+            table.on('tool(test)', function(obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+                var data = obj.data; //获得当前行数据
+                var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+                var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
+                if (layEvent === 'del') { //删除
+                    layer.confirm('真的要删除此用户吗', function (index) {
+                        obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                        layer.close(index);
+                        //向服务端发送删除指令
+                        $.ajax({
+                            type:'post',
+                            url:'http://'+location.host+'/projectv2_war_exploded/AdminUserServlet?type=deleteUser&uid='+obj.data.uid,
+                            success:function (data) {
+                                if(data==1){
+                                    layer.confirm("删除成功");
+                                }
+                                else{
+                                    layer.confirm("删除失败");
+                                }
+                            }
+                        })
+                    });
+                }
+            })
+        });
+    }
+
+    tableInit("http://localhost:8085/projectv2_war_exploded/AdminUserServlet?type=findAll");
+
+    //根据id查询，重新渲染表格，事件和tableInit()绑定
+    layui.use('layer', function(){
+        var $ = layui.$ //由于layer弹层依赖jQuery，所以可以直接得到
+            ,layer = layui.layer;
+
+        //jQuery
+        $("#findByuName").on('click',function(){
+            var uName = $(this).parent().parent().parent().parent().find(".layui-input").val();
+            tableInit("http://localhost:8085/projectv2_war_exploded/AdminUserServlet?type=findByuName&uName="+uName);
+        })
+
+
+    });
+
+
+
+</script>
+<script type="text/html" id="barDemo">
+
+    <a href="javascript:;" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+
+</script>
+</body>
+</div>
+</html>

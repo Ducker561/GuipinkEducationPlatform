@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guipink Education</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <script type="text/javascript" src="layui/layui.js"></script>
+
+
+</head>
+
+<body bgcolor="#CCCCCC" background="images/BGP.jpg" >
+	
+<audio autoplay="autoplay" controls="controls"loop="loop" preload="auto" 
+	src="BGM.mp3">
+	</audio>
+
+<br><br>
+<div class="layui-container">
+    <div class="layui-col-md4">&nbsp;</div>
+    <div class="layui-col-md4">
+        <!--注册-->
+        <h1 style="color: white;text-align: center">注册</h1>
+        <hr class="layui-border-green">   <br>
+
+        <div class="layui-form" style="text-align: center">
+            <div class="layui-input-inline">
+                <input type="text" name="id" required lay-verify="required" id="uid"
+                       placeholder="设置用户名(不得多于10字符)" autocomplete="off"class="layui-input" style="width:300px;"><!--用户名的填写-->
+            </div>
+            <br><br>
+            <div class="layui-input-inline">
+                <input type="password" name="password" required lay-verify="required" id="pwd"
+                       placeholder="设置密码" autocomplete="off"class="layui-input" style="width:300px;"><!--密码的填写-->
+            </div>
+            <br><br>
+            <div class="layui-input-inline">
+                <input type="password" name="password" required lay-verify="required" id="pwdConfirm"
+                       placeholder="再次输入密码" autocomplete="off"class="layui-input" style="width:300px;"><!--密码的填写-->
+            </div>
+            <br><br>
+            <div class="layui-input-inline">
+                <input type="name" name="name" required lay-verify="required" id="name"
+                       placeholder="真实姓名" autocomplete="off"class="layui-input" style="width:300px;"><!--姓名的填写-->
+            </div>
+            <br><br>
+            <div class="layui-input-inline" style="width:300px;">
+<!--                <input type="sex" name="sex" required lay-verify="required" id="sex"-->
+<!--                       placeholder="性别" autocomplete="off"class="layui-input" style="width:300px;">&lt;!&ndash;姓名的填写&ndash;&gt;-->
+                <select type="sex" name="sex" required lay-verify="required" id="sex"
+                        placeholder="性别" autocomplete="off"class="layui-input" style="width:300px;">
+                    <option value="">性别</option>
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                </select>
+            </div>
+            <br><br>
+            <div class="layui-input-inline">
+                <input type="age" name="age" required lay-verify="required" id="age"
+                       placeholder="年龄" autocomplete="off"class="layui-input" style="width:300px;"><!--年龄的填写-->
+            </div>
+            <br><br>
+            <div class="layui-input-inline">
+                <input type="tel" name="tel" required lay-verify="required" id="tel"
+                       placeholder="电话号码" autocomplete="off"class="layui-input" style="width:300px;"><!--年龄的填写-->
+            </div>
+            <br><br>
+            <div class="layui-input-inline" style="width:300px;">
+                <select type="utype" name="utype" required lay-verify="required" id="utype"
+                        placeholder="类型" autocomplete="off"class="layui-input" style="width:300px;">
+                    <option value="">类型</option>
+                    <option value="1">学生</option>
+                    <option value="2">老师</option>
+                    <option value="3">家长</option>
+                </select>
+            </div>
+            <br><br>
+            <div class="layui-input-inline login-btn">
+                <button  class="layui-btn layui-btn-primary layui-border-green" style="width:300px;" onclick="register()" >注册</button>
+            </div>
+            <hr/>
+            <p>
+                <a href="login.html" style="color: white;">返回登录界面</a></p>
+        </div>
+
+    </div>
+    <div class="layui-col-md4">&nbsp;</div>
+</div>
+
+<!--<script>-->
+<!--    function login(){-->
+<!--        var uid=document.getElementById("uid").value;-->
+<!--        var pwd=document.getElementById("pwd").value;-->
+<!--        if(uid==123&&pwd==123){-->
+<!--            //window.open("./chat.html?uid="+escape(uid));-->
+<!--            location.href="./chat.html?uid="+escape(uid);-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+<script src="./js/jquery-3.3.1.min.js" ></script>
+<script>
+    function register(){
+        var uid=$('#uid').val();
+        var pwd=$('#pwd').val();
+        var pwdConfirm=$('#pwdConfirm').val();
+        var name=$('#name').val();
+        var sex=$('#sex').val();
+        var age=$('#age').val();
+        var tel=$('#tel').val();
+        var utype=$('#utype').val();
+        if(uid.toString().length>10){
+            alert("用户名不得大于10字符!");
+            document.getElementById('uid').value="";
+            document.getElementById('pwd').value="";
+            document.getElementById('pwdConfirm').value="";
+            return;
+        }
+        if(uid==""){
+            alert("用户名不得为空！");
+            document.getElementById('uid').value="";
+            document.getElementById('pwd').value="";
+            document.getElementById('pwdConfirm').value="";
+            return;
+        }
+        if(pwd==""){
+            alert("密码不得为空！");
+            document.getElementById('pwd').value="";
+            document.getElementById('pwdConfirm').value="";
+            return;
+        }
+        if(pwd!=pwdConfirm){
+            alert("两次输入的密码不一致，请重新输入");
+            document.getElementById('pwd').value="";
+            document.getElementById('pwdConfirm').value="";
+            return;
+        }
+        if(name==""){
+            alert("请输入真实姓名");
+            return;
+        }
+        if(sex==0){
+            alert("请选择性别");
+            return;
+        }
+        if(age==""||isNaN(age)){
+            alert("请输入正确的年龄");
+            document.getElementById('age').value="";
+            return;
+        }
+        if(tel==""||isNaN(tel)){
+            alert("请输入正确的电话号码");
+            document.getElementById('tel').value="";
+            return;
+        }
+        if(utype==0){
+            alert("请选择用户类型");
+            return;
+        }
+        if(utype==3){
+            $.ajax({
+                type:'post',
+                url:'http://'+location.host+'/projectv2_war_exploded/LoginServlet?type=register&uid='+uid+'&pwd='+pwd+'&name='+name+'&sex='+sex+
+                    '&age='+age+'&tel='+tel+'&utype='+utype,
+                success:function (data) {
+                    if(data==1){
+                        alert("注册成功！")
+                        let childUid=prompt("请输入您孩子的uid");
+                        $.ajax({
+                            type:'post',
+                            url:'http://'+location.host+'/projectv2_war_exploded/PCServlet?type=register&uid='+uid+"&childUid="+childUid,
+                            success:function (data) {
+                                if(data==1){
+                                    alert("绑定成功，请等待认证通过。");
+                                    location.href="index.html";
+                                }else{
+                                    alert("绑定失败，可能是您输入的uid不存在。请联系管理员");
+                                    location.href="index.html";
+                                }
+                            }
+                        });
+                    }else{
+                        alert("该用户名已被占用，请重新注册！");
+                        document.getElementById('uid').value="";
+                        document.getElementById('pwd').value="";
+                        document.getElementById('pwdConfirm').value="";
+                    }
+                }
+            });
+            return;
+        }
+        else if(utype==2){
+            $.ajax({
+                type:'post',
+                url:'http://'+location.host+'/projectv2_war_exploded/LoginServlet?type=register&uid='+uid+'&pwd='+pwd+'&name='+name+'&sex='+sex+
+                    '&age='+age+'&tel='+tel+'&utype='+utype,
+                success:function (data) {
+                    if(data==1){
+                        alert("注册成功！")
+                        $.ajax({
+                            type:'post',
+                            url:'http://'+location.host+'/projectv2_war_exploded/VerificationServlet?type=register&uid='+uid,
+                            success:function (data) {
+                                if(data==1){
+                                    alert("绑定成功，请等待认证通过。");
+                                    location.href="index.html";
+                                }else{
+                                    alert("绑定失败，可能是您输入的uid不存在。请联系管理员");
+                                    location.href="index.html";
+                                }
+                            }
+                        });
+                    }else{
+                        alert("该用户名已被占用，请重新注册！");
+                        document.getElementById('uid').value="";
+                        document.getElementById('pwd').value="";
+                        document.getElementById('pwdConfirm').value="";
+                    }
+                }
+            });
+            return;
+        }
+        $.ajax({
+            type:'post',
+            url:'http://'+location.host+'/projectv2_war_exploded/LoginServlet?type=register&uid='+uid+'&pwd='+pwd+'&name='+name+'&sex='+sex+
+            '&age='+age+'&tel='+tel+'&utype='+utype,
+            success:function (data) {
+                if(data==1){
+                    alert("注册成功！")
+                    location.href="index.html";
+                }else{
+                    alert("该用户名已被占用，请重新注册！");
+                    document.getElementById('uid').value="";
+                    document.getElementById('pwd').value="";
+                    document.getElementById('pwdConfirm').value="";
+                }
+            }
+        })
+        return;
+    }
+
+
+
+</script>
+
+</body>
+</html>

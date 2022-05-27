@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Guipink Education</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="static/css/css2.css" rel="stylesheet">
+
+    <link href="static/css/all.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="static/css/animate.min.css" rel="stylesheet">
+    <link href="static/css/owl.carousel.min.css" rel="stylesheet">
+
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="static/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="spinner"
+     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>Guipink Education</h2>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="index.html" class="nav-item nav-link">Home</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Courses</a>
+                <div class="dropdown-menu fade-down m-0">
+                    <a href="courses.html" class="dropdown-item">Course</a>
+                    <a href="create_course.html" class="dropdown-item">Create Course</a>
+                </div>
+            </div>
+            <a href="comment.html" class="nav-item nav-link">Comment</a>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu fade-down m-0">
+                    <a href="mine.html" class="dropdown-item">Mine</a>
+                    <a href="shop.html" class="dropdown-item">Shop</a>
+                </div>
+            </div>
+            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a href="javascript:quit();" class="nav-item nav-link">Quit</a>
+        </div>
+        <a id="logina" href="login.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login<i class="fa fa-arrow-right ms-3"></i></a>
+    </div>
+</nav>
+
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Courses</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Courses</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="container-xxl py-5 category">-->
+<!--    <div class="container">-->
+<!--        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">-->
+<!--            <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>-->
+<!--            <h1 class="mb-5">Courses Categories</h1>-->
+<!--        </div>-->
+<!--        <div class="row g-3">-->
+<!--            <div class="col-lg-7 col-md-6">-->
+<!--                <div class="row g-3">-->
+<!--                    <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">-->
+<!--                        <a class="position-relative d-block overflow-hidden" href="">-->
+<!--                            <img class="img-fluid" src="static/picture/cat-1.jpg" alt="">-->
+<!--                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"-->
+<!--                                 style="margin: 1px;">-->
+<!--                                <h5 class="m-0">Web Design</h5>-->
+<!--                                <small class="text-primary">49 Courses</small>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">-->
+<!--                        <a class="position-relative d-block overflow-hidden" href="">-->
+<!--                            <img class="img-fluid" src="static/picture/cat-2.jpg" alt="">-->
+<!--                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"-->
+<!--                                 style="margin: 1px;">-->
+<!--                                <h5 class="m-0">Graphic Design</h5>-->
+<!--                                <small class="text-primary">49 Courses</small>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">-->
+<!--                        <a class="position-relative d-block overflow-hidden" href="">-->
+<!--                            <img class="img-fluid" src="static/picture/cat-3.jpg" alt="">-->
+<!--                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"-->
+<!--                                 style="margin: 1px;">-->
+<!--                                <h5 class="m-0">Video Editing</h5>-->
+<!--                                <small class="text-primary">49 Courses</small>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">-->
+<!--                <a class="position-relative d-block h-100 overflow-hidden" href="">-->
+<!--                    <img class="img-fluid position-absolute w-100 h-100" src="static/picture/cat-4.jpg" alt=""-->
+<!--                         style="object-fit: cover;">-->
+<!--                    <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">-->
+<!--                        <h5 class="m-0">Online Marketing</h5>-->
+<!--                        <small class="text-primary">49 Courses</small>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+            <h1 class="mb-5">Popular Courses</h1>
+        </div>
+        <div id="containCourse" class="row g-4 justify-content-center">
+<!--            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">-->
+<!--                <div class="course-item bg-light">-->
+<!--                    <div class="position-relative overflow-hidden">-->
+<!--                        <img class="img-fluid" src="static/picture/course-1.jpg" alt="">-->
+<!--                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">-->
+<!--                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"-->
+<!--                               style="border-radius: 30px 0 0 30px;">Read More</a>-->
+<!--                            <a href="javascript:void(0)" onclick="takeCourse('c1')" class="flex-shrink-0 btn btn-sm btn-primary px-3"-->
+<!--                               style="border-radius: 0 30px 30px 0;">Join Now</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="text-center p-4 pb-0">-->
+<!--                        <h3 class="mb-0">$149.00</h3>-->
+<!--                        <div class="mb-3">-->
+<!--                            <small class="fa fa-star text-primary"></small>-->
+<!--                            <small class="fa fa-star text-primary"></small>-->
+<!--                            <small class="fa fa-star text-primary"></small>-->
+<!--                            <small class="fa fa-star text-primary"></small>-->
+<!--                            <small class="fa fa-star text-primary"></small>-->
+<!--                            <small>(123)</small>-->
+<!--                        </div>-->
+<!--                        <h5 id="c1" class="mb-4">数据库系统及安全</h5>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex border-top">-->
+<!--                        <small class="flex-fill text-center border-end py-2"><i-->
+<!--                                class="fa fa-user-tie text-primary me-2"></i>John Doe</small>-->
+<!--                        <small class="flex-fill text-center border-end py-2"><i-->
+<!--                                class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>-->
+<!--&lt;!&ndash;                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30&ndash;&gt;-->
+<!--&lt;!&ndash;                    Students</small>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">-->
+<!--                <div class="course-item bg-light">-->
+<!--                    <div class="position-relative overflow-hidden">-->
+<!--                        <img class="img-fluid" src="static/picture/course-3.jpg" alt="">-->
+<!--                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">-->
+<!--                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"-->
+<!--                               style="border-radius: 30px 0 0 30px;">Read More</a>-->
+<!--                            <a href="javascript:void(0)" onclick="takeCourse('c3')" class="flex-shrink-0 btn btn-sm btn-primary px-3"-->
+<!--                               style="border-radius: 0 30px 30px 0;">Join Now</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="text-center p-4 pb-0">-->
+<!--                        <h3 class="mb-0">$149.00</h3>-->
+<!--                        <div class="mb-3">-->
+<!--                            <small class="fa fa-star text-primary"></small>-->
+<!--                            <small class="fa fa-star text-primary"></small>-->
+<!--                            <small class="fa fa-star text-primary"></small>-->
+<!--                            <small class="fa fa-star text-primary"></small>-->
+<!--                            <small class="fa fa-star text-primary"></small>-->
+<!--                            <small>(123)</small>-->
+<!--                        </div>-->
+<!--                        <h5 id="c3" class="mb-4">计算机通信与网络</h5>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex border-top">-->
+<!--                        <small class="flex-fill text-center border-end py-2"><i-->
+<!--                                class="fa fa-user-tie text-primary me-2"></i>John Doe</small>-->
+<!--                        <small class="flex-fill text-center border-end py-2"><i-->
+<!--                                class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small>-->
+<!--                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30-->
+<!--                            Students</small>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+</div>
+
+
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="text-center">
+            <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+            <h1 class="mb-5">Our Students Say!</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel position-relative">
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="static/picture/testimonial-1.jpg"
+                     style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Client Name</h5>
+                <p>Profession</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos.
+                        Clita erat ipsum et lorem et sit.</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="static/picture/testimonial-2.jpg"
+                     style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Client Name</h5>
+                <p>Profession</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos.
+                        Clita erat ipsum et lorem et sit.</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="static/picture/testimonial-3.jpg"
+                     style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Client Name</h5>
+                <p>Profession</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos.
+                        Clita erat ipsum et lorem et sit.</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="static/picture/testimonial-4.jpg"
+                     style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Client Name</h5>
+                <p>Profession</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos.
+                        Clita erat ipsum et lorem et sit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-white mb-3">Quick Link</h4>
+                <a class="btn btn-link" href="">About Us</a>
+                <a class="btn btn-link" href="">Contact Us</a>
+                <a class="btn btn-link" href="">Privacy Policy</a>
+                <a class="btn btn-link" href="">Terms & Condition</a>
+                <a class="btn btn-link" href="">FAQs & Help</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-white mb-3">Contact</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>SCU, China</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="email-protection.html" class="__cf_email__"
+                                                                      data-cfemail="355c5b535a75504d54584559501b565a58">[email&#160;protected]</a>
+                </p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-white mb-3">Gallery</h4>
+                <div class="row g-2 pt-2">
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="static/picture/course-1.jpg" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="static/picture/course-2.jpg" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="static/picture/course-3.jpg" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="static/picture/course-2.jpg" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="static/picture/course-3.jpg" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="static/picture/course-1.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-white mb-3">Newsletter</h4>
+                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                <div class="position-relative mx-auto" style="max-width: 400px;">
+                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    Copyright &copy; 2022.Guipink All rights reserved.
+
+
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a href="index.html">Home</a>
+                        <a href="">Cookies</a>
+                        <a href="">Help</a>
+                        <a href="">FQAs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+<script data-cfasync="false" src="static/js/email-decode.min.js"></script>
+<script src="static/js/jquery-3.4.1.min.js" type="2cac9e86efd72be5ccbcfb9e-text/javascript"></script>
+<script src="static/js/bootstrap.bundle.min.js" type="2cac9e86efd72be5ccbcfb9e-text/javascript"></script>
+<script src="static/js/wow.min.js" type="2cac9e86efd72be5ccbcfb9e-text/javascript"></script>
+<script src="static/js/easing.min.js" type="2cac9e86efd72be5ccbcfb9e-text/javascript"></script>
+<script src="static/js/waypoints.min.js" type="2cac9e86efd72be5ccbcfb9e-text/javascript"></script>
+<script src="static/js/owl.carousel.min.js" type="2cac9e86efd72be5ccbcfb9e-text/javascript"></script>
+
+<script src="static/js/main.js" type="2cac9e86efd72be5ccbcfb9e-text/javascript"></script>
+<script src="static/js/rocket-loader.min.js" data-cf-settings="2cac9e86efd72be5ccbcfb9e-|49" defer=""></script>
+<script src="layui/layui.js"></script>
+
+<script>
+    let uid;
+
+    window.onload=function() {
+        uid = sessionStorage.getItem("uid");
+        if(uid!=null) {
+            document.getElementById("logina").innerHTML = uid + ", 欢迎您！";
+            document.getElementById("logina").href = "#";
+        }
+        if(sessionStorage.getItem("userType")=="teacher"){
+            $.ajax({
+                type: 'get',
+                url: 'http://' + location.host + '/projectv2_war_exploded/VerificationServlet?type=getPassed&uid='+uid,
+                dataType: 'json',
+                success: function (data) {
+                    if(data==1){
+                        console.log("认证通过");
+                    }
+                    else if(data==3){
+                        alert("您的教师认证还未通过，请耐心等待");
+                        location.href="index.html";
+                        return;
+                    }
+                    else if(data==0){
+                        alert("您还没有进行教师认证，请前往认证页面。");
+                        location.href="verification.html";
+                        return;
+                    }
+                    else if(data==4){
+                        alert("您的认证未通过，请重新认证。");
+                        location.href="verification.html";
+                        return;
+                    }
+                    else {
+                        alert("服务器错误，请联系管理员。");
+                        location.href="index.html";
+                        return;
+                    }
+                }
+            })
+        }
+        let msg;
+        $.ajax({
+            type: 'get',
+            url: 'http://' + location.host + '/projectv2_war_exploded/CourseServlet?type=getAllCourses',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                for(var i=0;i<data.length;i++){
+                    msg=`<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="${0.1+0.2*(i%3)}s">
+                <div class="course-item bg-light">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid" src="static/picture/course-${i+1}.jpg" alt="">
+                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                            <a href="javascript:void(0)" onclick="showcInfo('${data[i].cInfo}')" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
+                               style="border-radius: 30px 0 0 30px;">Read More</a>
+                            <a href="javascript:void(0)" onclick="takeCourse('c${i}')" class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                               style="border-radius: 0 30px 30px 0;">Join Now</a>
+                        </div>
+                    </div>
+                    <div class="text-center p-4 pb-0">
+                        <h3 class="mb-0">Free</h3>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small>(${randomNum(100,1000)})</small>
+                        </div>
+                        <h5 id="c2" class="mb-4">${data[i].cName}</h5>
+                    </div>
+                    <div class="d-flex border-top">
+                        <small class="flex-fill text-center border-end py-2"><i
+                                class="fa fa-star-of-life text-primary me-2"></i>+100 score</small>
+                        <small class="flex-fill text-center border-end py-2"><i
+                                class="fa fa-clock text-primary me-2"></i>${data[i].cLast} min</small>
+                    </div>
+                </div>
+            </div>`
+                    document.getElementById("containCourse").innerHTML+=msg;
+                }
+            }
+        })
+
+    };
+
+    function takeCourse(c) {
+        if(uid==null){
+            alert("请先登录！");
+            location.href="login.html";
+            return;
+        }
+        let cName = document.getElementById(c).innerHTML;
+        $.ajax({
+            type:'post',
+            url:'http://'+location.host+'/projectv2_war_exploded/CourseServlet?type=signup&uid='+uid+'&cName='+cName,
+            success:function (data) {
+                if(data==1){
+                    alert("添加成功！");
+                    scoreIncrease();
+                }
+                else if(data==2) alert("已经添加过此课程。");
+                else if(data==0) alert("该课程不存在，请联系管理员。");
+            }
+        })
+
+        //报名课程后积分增长
+        function scoreIncrease() {
+            $.ajax({
+                type:'post',
+                url:'http://'+location.host+'/projectv2_war_exploded/LoginServlet?type=scoreIncrease&uid='+uid,
+                success:function (data) {
+                    if(data==1){
+                        alert("积分已更新");
+                    }
+                    else {
+                        alert("积分更新失败，请联系管理员");
+                    }
+                }
+            })
+
+        }
+
+    }
+
+    function showcInfo(info) {
+        layer.confirm(info);
+    }
+
+
+    function quit() {
+        sessionStorage.removeItem("uid");
+        sessionStorage.removeItem("userType");
+        location.href="index.html";
+    }
+
+    function randomNum(minNum,maxNum){
+        switch(arguments.length){
+            case 1:
+                return parseInt(Math.random()*minNum+1,10);
+                break;
+            case 2:
+                return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10);
+                break;
+            default:
+                return 0;
+                break;
+        }
+    }
+
+</script>
+</body>
+</html>

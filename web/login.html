@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guipink Education</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="./css/index.css" rel="stylesheet" type="text/css" media="all">
+    <script type="text/javascript" src="layui/layui.js"></script>
+
+</head>
+
+<body >
+ <section>
+     <!-- 背景颜色 -->
+     <div class="color"></div>
+     <div class="color"></div>
+     <div class="color"></div>
+     <div class="box">
+         <!-- 背景圆 -->
+         <div class="circle" style="--x:0"></div>
+         <div class="circle" style="--x:1"></div>
+         <div class="circle" style="--x:2"></div>
+         <div class="circle" style="--x:3"></div>
+         <div class="circle" style="--x:4"></div>
+         <!-- 登录框 -->
+         <div class="container">
+             <div class="form">
+                 <h2>登录</h2>
+                 <div>
+                     <div class="inputBox">
+                         <input type="text" placeholder="账号" id="uid">
+  
+                     </div>
+                     <div class="inputBox">
+                         <input type="password" placeholder="密码" id="pwd">
+  
+                     </div>
+                     <div class="inputBox">
+                         <input type="submit" value="登录" onclick="loginpro()">
+  
+                     </div>
+                     <p class="forget">没有账户?<a href="register.html">
+                             注册一个！
+                         <p class="forget"><a href="index.html">
+                             返回游客模式！
+                         </a></p>
+                     </a></p>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section>
+<script src="./js/jquery-3.3.1.min.js" ></script>
+<script>
+
+    function loginpro(){
+        var uid=$('#uid').val();
+        var pwd=$('#pwd').val();
+        $.ajax({
+            type:'post',
+            url:'http://'+location.host+'/projectv2_war_exploded/LoginServlet?type=login&uid='+uid+'&pwd='+pwd,
+            success:function (data) {
+                if(data==4){
+                    location.href="admin.html";
+                    sessionStorage.setItem('uid', uid);
+                    sessionStorage.setItem('userType','admin');
+                }
+                else if(data==1){
+                    location.href="index.html";
+                    sessionStorage.setItem('uid', uid);
+                    sessionStorage.setItem('userType','student');
+                }
+                else if(data==2){
+                    location.href="index.html";
+                    sessionStorage.setItem('uid', uid);
+                    sessionStorage.setItem('userType','teacher');
+                }
+                else if(data==3){
+                    location.href="index.html";
+                    sessionStorage.setItem('uid', uid);
+                    sessionStorage.setItem('userType','parents');
+                }
+                else{
+                    alert("用户名或者密码错误或者没有注册!");
+                    document.getElementById('uid').value="";
+                    document.getElementById('pwd').value="";
+                }
+            }
+        })
+    }
+    $(document).keyup(function(event){
+        if (event.keyCode == 13){
+            loginpro();
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

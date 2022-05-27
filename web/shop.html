@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Guipink Education</title>
+    <link href="static/css/shopbootstrap.css" rel='stylesheet' type='text/css' />
+<!--    <script src="js/jquery.min.js"></script>-->
+    <!-- Custom Theme files -->
+    <link href="static/css/shopstyle.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <script
+        type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- webfonts -->
+    <link href='http://fonts.useso.com/css?family=Glegoo:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Rochester' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+    <!-- webfonts -->
+</head>
+
+<body>
+    <!-- container -->
+    <!-- header -->
+    <div class="header">
+        <!-- top-header -->
+        <div class="top-header">
+            <div class="container">
+                <div class="rigister-info">
+                    <ul>
+                        <li><a href="index.html">Come back</a></li>
+
+                        <div class="clearfix"> </div>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="banner">
+        <div class="container">
+            <div class="img-slider">
+                <div id="top" class="callbacks_container">
+                    <ul class="rslides" id="slider4">
+                        <li>
+                            <img class="img-responsive" src="static/image/slide1.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="static/image/slide1.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="static/image/slide1.jpg" alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="top-grids">
+        <div id="container" class="container">
+<!--            <div class="col-md-4 top-grid text-center">-->
+<!--                <div class="top-grid-pic">-->
+<!--                    <img src="static/image/pic01.png" title="2500" />-->
+<!--                    <span>100000</span>-->
+<!--                </div>-->
+<!--                <div class="top-grid-pic-info">-->
+<!--                    <a href="single-page.html">Buy</a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-md-4 top-grid text-center">-->
+<!--                <div class="top-grid-pic">-->
+<!--                    <img src="static/image/pic02.png" title="1000" />-->
+<!--                    <span>100000</span>-->
+<!--                </div>-->
+<!--                <div class="top-grid-pic-info">-->
+<!--                    <a href="single-page.html">Buy</a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+<!--            <div class="col-md-4 top-grid text-center">-->
+<!--                <div class="top-grid-pic">-->
+<!--                    <img src="static/image/pic03.png" title="1500" />-->
+<!--                    <span>150000</span>-->
+<!--                </div>-->
+<!--                <div class="top-grid-pic-info">-->
+<!--                    <a href="single-page.html">Buy</a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+<!--            <div class="col-md-4 top-grid text-center">-->
+<!--                <div class="top-grid-pic">-->
+<!--                    <img src="static/image/pic04.png" title="1000" />-->
+<!--                    <span>20000</span>-->
+<!--                </div>-->
+<!--                <div class="top-grid-pic-info">-->
+<!--                    <a href="single-page.html">Buy</a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+<!--            <div class="col-md-4 top-grid text-center">-->
+<!--                <div class="top-grid-pic">-->
+<!--                    <img src="static/image/pic05.jpg" title="1000" />-->
+<!--                    <span>20000</span>-->
+<!--                </div>-->
+<!--                <div class="top-grid-pic-info">-->
+<!--                    <a href="single-page.html">Buy</a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+<!--            <div class="col-md-4 top-grid text-center">-->
+<!--                <div class="top-grid-pic">-->
+<!--                    <img src="static/image/pic06.png" title="1000" />-->
+<!--                    <span>20000</span>-->
+<!--                </div>-->
+<!--                <div class="top-grid-pic-info">-->
+<!--                    <a href="single-page.html">Buy</a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="./js/jquery-3.3.1.min.js" ></script>
+<script>
+
+    uid = sessionStorage.getItem("uid");
+    let address;
+
+    function buy(gid) {
+        $.ajax({
+            type:'get',
+            url:'http://'+location.host+'/projectv2_war_exploded/ShopServlet?type=getgPrice&gid='+gid,
+            dataType:'json',
+            success:function (price) {
+                $.ajax({
+                    type:'get',
+                    url:'http://'+location.host+'/projectv2_war_exploded/LoginServlet?type=scoreDecrease&uid='+uid+"&gPrice="+price,
+                    dataType:'json',
+                    success:function (data) {
+                        if(data==1){
+                            alert("购买成功");
+                            address=prompt("请填写送货地址");
+                        }
+                        else if(data==0){
+                            alert("您的积分不足，继续加油吧！");
+                        }
+                        else{
+                            alert("服务器错误，请联系管理员");
+                        }
+                    }
+                })
+            }
+        })
+    }
+
+    window.onload=function() {
+        if (uid == null) {
+            alert("请先登录");
+            location.href = "login.html";
+            return;
+        }
+        let msg="";
+        $.ajax({
+            type:'get',
+            url:'http://'+location.host+'/projectv2_war_exploded/ShopServlet?type=getAll',
+            dataType:'json',
+            success:function (data) {
+                for(var i=0; i<data.goods.length; i++){
+                    msg = `<div class="col-md-4 top-grid text-center">
+                <div class="top-grid-pic">
+                    <img src=${data.goods[i].gHref} title="1000" />
+                    <span>${data.goods[i].gPrice}积分</span>
+                </div>
+                <div class="top-grid-pic-info">
+                    <a href="javascript:buy(${data.goods[i].gid});">Buy</a>
+                </div>
+            </div>`
+                    document.getElementById("container").innerHTML+=msg;
+                }
+            }
+        })
+
+    }
+</script>
+
+</html>

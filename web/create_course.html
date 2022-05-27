@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <title>Guipink Education</title>
+  <!-- Meta-Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="keywords" content=""/>
+
+  <script>
+    addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+  <!-- //Meta-Tags -->
+  <!-- Stylesheets -->
+  <link href="css/style.css" rel='stylesheet' type='text/css' />
+  <!--// Stylesheets -->
+  <!--fonts-->
+  <!-- title -->
+	<link href="http://fonts.googleapis.com/css?family=Abhaya+Libre:400,500,600,700,800" rel="stylesheet">
+  <!-- body -->
+  <!--//fonts-->
+</head>
+
+<body>
+  <header>
+    <h1>Create Course</h1>
+  </header>
+  <div class="w3ls-contact">
+
+    <!-- form starts here -->
+    <form action="#" method="post">
+      <div class="agile-field-txt">
+        <label>
+          Course Name:</label>
+        <input id="name" type="text" name="name" placeholder="Fill in the course name" required="" />
+      </div>
+      <div class="agile-field-txt">
+        <label>
+        Course Description</label>
+		 <textarea id="description" name="Comments" placeholder="Fill in the course description" required=""></textarea>
+      </div>
+      <div class="agile-field-txt">
+        <label>
+          Course Duration</label>
+         <input id="duration" name="Comments" type="text" placeholder="Fill in the course duration" required="" />
+      </div>
+      <div class="w3ls-contact  w3l-sub">
+        <input type="button" onclick="addCourse()" value="Create Course" />
+      </div>
+      <div class="copy-wthree">
+        <p><a href="courses.html">Come back.</a></p>
+      </div>
+    </form>
+  </div>
+  <!-- //form ends here -->
+<script src="./static/js/jquery-3.4.1.min.js"></script>
+<script>
+  let uid = sessionStorage.getItem("uid");
+  if(uid == null){
+    alert("您没有登录，请登录后操作");
+    location.href="login.html";
+  }
+  else if(sessionStorage.getItem("userType")=="admin"){
+    alert("您是管理员，请妥善管理课程。");
+  }
+  else if(sessionStorage.getItem("userType")!="teacher"){
+    alert("您不是老师，没有权限添加课程。");
+    location.href="index.html";
+  }
+
+  if(sessionStorage.getItem("userType")=="teacher"){
+    $.ajax({
+      type: 'get',
+      url: 'http://' + location.host + '/projectv2_war_exploded/VerificationServlet?type=getPassed&uid='+uid,
+      dataType: 'json',
+      success: function (data) {
+        if(data==1){
+          console.log("认证通过");
+        }
+        else if(data==3){
+          alert("您的教师认证还未通过，请耐心等待");
+          location.href="index.html";
+        }
+        else if(data==0){
+          alert("您还没有进行教师认证，请前往认证页面。");
+          location.href="verification.html";
+        }
+        else if(data==4){
+          alert("您的认证未通过，请重新认证。");
+          location.href="verification.html";
+          return;
+        }
+        else {
+          alert("服务器错误，请联系管理员。");
+          location.href="index.html";
+        }
+      }
+    })
+  }
+
+  function addCourse(){
+    let cName=$('#name').val();
+    let cInfo=$('#description').val();
+    let cLast=$('#duration').val();
+    $.ajax({
+      type:'post',
+      url:'http://'+location.host+'/projectv2_war_exploded/CourseServlet?type=addCourse&uid='+uid+'&cName='+cName+"&cInfo="+cInfo+"&cLast="+cLast,
+      success:function (data) {
+        if(data==1){
+          alert("添加课程成功！");
+          location.href="courses.html";
+        }
+        else if(data==2){
+          alert("您添加的课程已经存在，若也要教授此课程，请在Course页面中找到此课程并点击\"join now\"");
+          location.href="courses.html";
+        }
+        else if(data==3){
+          alert("服务器错误，添加课程失败，请联系管理员");
+        }
+        else if(data==4){
+          alert("服务器错误，添加课程成功，但是没有添加进授课教师列表，请在Course页面中找到此课程并点击\"join now\"");
+          location.href="courses.html";
+        }
+      }
+    })
+  }
+
+  function quit() {
+    sessionStorage.removeItem("uid");
+    sessionStorage.removeItem("userType");
+    location.href="index.html";
+  }
+
+
+</script>
+
+</body>
+<!-- //Body -->
+
+</html>

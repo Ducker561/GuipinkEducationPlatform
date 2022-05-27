@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guipink Education Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <script type="text/javascript" src="layui/layui.js"></script>
+<!--    <link rel="icon" href="../image/校徽.png">-->
+
+</head>
+
+<body>
+
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo" style="font-size: 20px;">
+<!--                <img src="../image/校徽.png" width="30">-->
+                后台管理系统
+            </div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <div id="WelcomeMAN">欢迎您, </div>
+                </li>
+<!--                <li class="layui-nav-item">-->
+<!--                    <div id="WelcomID">欢迎登录</div>-->
+<!--                </li>-->
+                <li class="layui-nav-item"><a href="./index.html">退出</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+
+<!--                    <li class="layui-nav-item">-->
+<!--                        <a class="" href="javascript:;">项目申报</a>-->
+<!--                        <dl class="layui-nav-child">-->
+<!--                            <dd><a href="javascript:;">填制项目卡</a></dd>-->
+<!--                            <dd><a href="javascript:;">待推荐项目</a></dd>-->
+<!--                            <dd><a href="javascript:;">复核上报项目</a></dd>-->
+<!--                            <dd><a href="javascript:;">项目申报汇总表</a></dd>-->
+<!--                        </dl>-->
+<!--                    </li>-->
+
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">用户信息</a>
+<!--                        <dl class="layui-nav-child">-->
+<!--                            <dd><a href="javascript:;">所有用户信息</a></dd>-->
+<!--                            <dd><a href="javascript:;">审批信息更新</a></dd>-->
+<!--                        </dl>-->
+                    </li>
+
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">课程信息</a>
+<!--                        <dl class="layui-nav-child">-->
+<!--                            <dd><a href="javascript:;">填写项目进度表</a></dd>-->
+<!--                            <dd><a href="javascript:;">查询项目进度表</a></dd>-->
+<!--                            <dd><a href="javascript:;">项目实施</a></dd>-->
+<!--                        </dl>-->
+                    </li>
+
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">家长认证</a>
+
+<!--                        <dl class="layui-nav-child">-->
+
+
+<!--                            <li class="layui-nav-item">-->
+<!--                                <a href="javascript:;">时间类型统计</a>-->
+<!--                                <ol class="layui-nav-child">-->
+<!--                                    <li><a href="javascript:;">年份统计</a></li>-->
+<!--                                    <li><a href="javascript:;">年份统计（基础）</a></li>-->
+<!--                                    <li><a href="javascript:;">类型统计</a></li>-->
+<!--                                </ol>-->
+<!--                            </li>-->
+
+<!--                            <li class="layui-nav-item">-->
+<!--                                <a href="javascript:;">地区统计</a>-->
+<!--                                <ol class="layui-nav-child">-->
+<!--                                    <li><a href="javascript:;">地区统计</a></li>-->
+<!--                                    <li><a href="javascript:;">地区统计（基础）</a></li>-->
+<!--                                </ol>-->
+<!--                            </li>-->
+<!--                        </dl>-->
+                    </li>
+
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">教师认证</a>
+                    </li>
+
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">意见反馈</a>
+                    </li>
+
+                    <!--<li class="layui-nav-item">-->
+                        <!--<a href="javascript:;">退出系统</a>-->
+                    <!--</li>-->
+
+                </ul>
+
+            </div>
+        </div>
+
+        <div id="main" class="layui-body">
+            <!-- 内容主体区域 -->
+        </div>
+
+        <div class="layui-footer" >
+            <!-- 底部固定区域 -->
+            Copyright &copy; 2022.Guipink All rights reserved.
+        </div>
+    </div>
+
+    <script src="layui/layui.js"></script>
+    <script>
+
+
+        let uid=sessionStorage.getItem("uid");
+        if(sessionStorage.getItem("userType")!="admin"){
+            alert("没有权限进行此操作。");
+            location.href="index.html";
+        }
+        document.getElementById("WelcomeMAN").innerHTML+=uid;
+
+        //JavaScript代码区域
+        layui.use('element', function(){
+            var element = layui.element;
+        });
+
+        layui.use('element', function(){
+            var element = layui.element;
+            var $ = layui.jquery;
+            $("a").click(function(){
+                // alert($(this).text());
+                var text = $(this).text();
+                // if(text=="填制项目卡"){
+                //     $("#main").find("#ifr").remove();
+                //     $("#main").append('<iframe src="Pr_SB/tianZhi.html" id="ifr" ' +
+                //         'style="width:100%;height:100%"></iframe>');
+                // }else if(text=="待推荐项目"){
+                //     $("#main").find("#ifr").remove();
+                //     $("#main").append('<iframe src="Pr_SB/daiTuiJian.html" id="ifr" ' +
+                //         'style="width:100%;height:100%"></iframe>');
+                // }else if(text=="复核上报项目"){
+                //     $("#main").find("#ifr").remove();
+                //     $("#main").append('<iframe src="Pr_SB/fuHe.html" id="ifr" ' +
+                //         'style="width:100%;height:100%"></iframe>');
+                // }else if(text=="项目申报汇总表"){
+                //     $("#main").find("#ifr").remove();
+                //     $("#main").append('<iframe src="Pr_SB/huiZong.html" id="ifr" ' +
+                //         'style="width:100%;height:100%"></iframe>');
+                // }
+                if(text=="用户信息"){
+                    $("#main").find("#ifr").remove();
+                    $("#main").append('<iframe src="admin/user.html" id="ifr" ' +
+                        'style="width:100%;height:100%"></iframe>');
+                }
+                // else if(text=="填写项目进度表"){
+                //     $("#main").find("#ifr").remove();
+                //     $("#main").append('<iframe src="Pr_SS/ss-tx.html" id="ifr" ' +
+                //         'style="width:100%;height:100%"></iframe>');
+                // }
+                // else if(text=="查询项目进度表"){
+                //     $("#main").find("#ifr").remove();
+                //     $("#main").append('<iframe src="Pr_SS/ss-cx.html" id="ifr" ' +
+                //         'style="width:100%;height:100%"></iframe>');
+                // }
+                else if(text=="课程信息"){
+                    $("#main").find("#ifr").remove();
+                    $("#main").append('<iframe src="admin/adminCourse.html" id="ifr" ' +
+                        'style="width:100%;height:100%"></iframe>');
+                }
+                else if(text=="家长认证"){
+                    $("#main").find("#ifr").remove();
+                    $("#main").append('<iframe src="admin/parentsChild.html" id="ifr" ' +
+                        'style="width:100%;height:100%"></iframe>');
+                }
+                else if(text=="意见反馈"){
+                    $("#main").find("#ifr").remove();
+                    $("#main").append('<iframe src="admin/adminFeedback.html" id="ifr" ' +
+                        'style="width:100%;height:100%"></iframe>');
+                }
+                else if(text=="教师认证"){
+                    $("#main").find("#ifr").remove();
+                    $("#main").append('<iframe src="admin/adminVerification.html" id="ifr" ' +
+                        'style="width:100%;height:100%"></iframe>');
+                }
+                    // else if(text=="地区统计"){
+                //     $("#main").find("#ifr").remove();
+                //     $("#main").append('<iframe src="Pr_TJ/tj-sjsum1.html" id="ifr" ' +
+                //         'style="width:100%;height:100%"></iframe>');
+                // }else if(text=="地区统计（基础）"){
+                //     $("#main").find("#ifr").remove();
+                //     $("#main").append('<iframe src="Pr_TJ/tj-sj.html" id="ifr" ' +
+                //         'style="width:100%;height:100%"></iframe>');
+                // }else if(text=="修改密码"){
+                //     $("#main").find("#ifr").remove();
+                //     $("#main").append('<iframe src="changePwd.html" id="ifr" ' +
+                //         'style="width:100%;height:100%"></iframe>');
+                // }
+            })
+        });
+
+    </script>
+
+
+</body>
+</html>
